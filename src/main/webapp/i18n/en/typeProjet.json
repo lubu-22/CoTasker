@@ -1,0 +1,13 @@
+{
+  "gestionApp": {
+    "TypeProjet": {
+      "null": "",
+      "FORMATION": "FORMATION",
+      "DEVELOPPEMENT": "DEVELOPPEMENT",
+      "INTEGRATION": "INTEGRATION",
+      "ETUDE": "ETUDE",
+      "AUDITE": "AUDITE",
+      "AUTRE": "AUTRE"
+    }
+  }
+}

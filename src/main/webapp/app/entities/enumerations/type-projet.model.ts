@@ -1,0 +1,13 @@
+export enum TypeProjet {
+  FORMATION = 'FORMATION',
+
+  DEVELOPPEMENT = 'DEVELOPPEMENT',
+
+  INTEGRATION = 'INTEGRATION',
+
+  ETUDE = 'ETUDE',
+
+  AUDITE = 'AUDITE',
+
+  AUTRE = 'AUTRE',
+}

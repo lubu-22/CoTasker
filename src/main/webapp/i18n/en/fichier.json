@@ -1,0 +1,27 @@
+{
+  "gestionApp": {
+    "fichier": {
+      "home": {
+        "title": "Fichiers",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Fichier",
+        "createOrEditLabel": "Create or edit a Fichier",
+        "notFound": "No Fichiers found"
+      },
+      "created": "A new Fichier is created with identifier {{ param }}",
+      "updated": "A Fichier is updated with identifier {{ param }}",
+      "deleted": "A Fichier is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Fichier {{ id }}?"
+      },
+      "detail": {
+        "title": "Fichier"
+      },
+      "id": "ID",
+      "nomF": "Nom F",
+      "cheminF": "Chemin F",
+      "codeF": "Code F",
+      "dossier": "Dossier"
+    }
+  }
+}

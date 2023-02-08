@@ -1,0 +1,119 @@
+
+<div>
+  <h2 id="page-heading" data-cy="ProjetHeading">
+    <img src="content/Projetss.jpg" WIDTH=500 HEIGHT=300 />
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="gestionApp.projet.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-projet"
+        [routerLink]="['/projet/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span > Creer un nouveau projet</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="projets?.length === 0">
+    <span jhiTranslate="gestionApp.projet.home.notFound">No projets found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="projets && projets.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th></th>
+          <th scope="col" jhiSortBy="intitule">
+            <span jhiTranslate="gestionApp.projet.intitule">Intitule</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="descriptionProjet">
+            <span jhiTranslate="gestionApp.projet.descriptionProjet">Description Projet</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col">
+            <span > Chef de Projet</span>
+          </th>
+
+
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let projet of projets; trackBy: trackId" data-cy="entityTable">
+          <td>
+
+            <img src="content/projet.png"  WIDTH=50 HEIGHT=50/>
+          </td>
+          <td>{{ projet.intitule }}</td>
+          <td>{{ projet.descriptionProjet }}</td>
+          <td>{{projet.user?.login}}</td>
+
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/projet', projet.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button *jhiHasAnyAuthority="enumauthority.DIRECTEUR"  type="submit" [routerLink]="['/projet', projet.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button  *jhiHasAnyAuthority="enumauthority.DIRECTEUR" type="submit" (click)="delete(projet)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+              <button type="button" class="btn btn-info" (click)="ouvrirModal(projet.id!)">
+                <fa-icon [icon]="fatache"></fa-icon>
+                Gérer les dossiers
+              </button>
+
+
+              <button type="submit" [routerLink]="['/projet', projet.id, 'chefdeprojet']" class="btn btn-dark" data-cy="entityDetailsButton">
+               <span class="d-none d-md-inline" >Affecter un chef de projet</span>
+              </button>
+
+              <button  *jhiHasAnyAuthority="enumauthority.DIRECTEUR" type="button" class="btn btn-info" [routerLink]="['/projet', projet.id, 'newdossier']" >
+                <fa-icon [icon]="faFolder"></fa-icon>
+                <span class="d-none d-md-inline" >Créer un Dossier</span>
+              </button>
+             <!-- <button type="submit" [routerLink]="['/projet', projet.id, 'tachedeprojet']" class="btn btn-dark" data-cy="entityDetailsButton">
+                <fa-icon [icon]="fatache"></fa-icon>
+                <span class="d-none d-md-inline" >voir les taches</span>
+              </button> -->
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="projets && projets.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

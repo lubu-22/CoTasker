@@ -1,0 +1,77 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-fichier-heading" data-cy="FichierCreateUpdateHeading" jhiTranslate="gestionApp.fichier.home.createOrEditLabel">
+        Create or edit a Fichier
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+         <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gestionApp.fichier.nomF" for="field_nomF">Nom F</label>
+         <input type="text" class="form-control" name="nomF" id="field_nomF" data-cy="nomF" formControlName="nomF" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gestionApp.fichier.cheminF" for="field_cheminF">Chemin F</label>
+          <input type="text" class="form-control" name="cheminF" id="field_cheminF" data-cy="cheminF" formControlName="cheminF" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gestionApp.fichier.codeF" for="field_codeF">Code F</label>
+          <input type="text" class="form-control" name="codeF" id="field_codeF" data-cy="codeF" formControlName="codeF" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gestionApp.fichier.dossier" for="field_dossier">Dossier</label>
+          <select class="form-control" id="field_dossier" data-cy="dossier" name="dossier" formControlName="dossier">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="dossierOption.id === editForm.get('dossier')!.value?.id ? editForm.get('dossier')!.value : dossierOption"
+              *ngFor="let dossierOption of dossiersSharedCollection; trackBy: trackDossierById"
+            >
+              {{ dossierOption.id }}
+            </option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <label class="btn btn-default p-0">
+              <input type="file" (change)="selectFile($event)" />
+            </label>
+          </div>
+        </div>
+
+        <div *ngIf="currentFile" class="progress my-3">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}"  aria-valuemin="0"  aria-valuemax="100"  [ngStyle]="{ width: progress + '%' }" >
+            {{ progress }}%
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+
+
+      </div>
+    </form>
+  </div>
+</div>

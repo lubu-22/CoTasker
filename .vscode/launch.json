@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GestionApp<gestion>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "stage.a2sys.gestion.GestionApp",
+            "projectName": "gestion",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

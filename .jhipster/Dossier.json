@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20220824165001",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "dossier",
+  "fields": [
+    {
+      "fieldName": "nomD",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cheminD",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Dossier",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "fichier",
+      "otherEntityRelationshipName": "dossier",
+      "relationshipName": "fichier",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,25 @@
+{
+  "applications": "*",
+  "changelogDate": "20220824165003",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "tache",
+  "fields": [
+    {
+      "fieldName": "role",
+      "fieldType": "Role",
+      "fieldValues": "CHEF_DE_PROJET,DEVELOPPEUR,SUPPORT_TECHNIQUE,FORMATEUR,AUDITEUR,AUTRE"
+    },
+    {
+      "fieldName": "descriptiontache",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Tache",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

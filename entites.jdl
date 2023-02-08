@@ -1,0 +1,76 @@
+
+
+entity Client {
+  nomC String
+  adresse String
+  numero Long
+  email String
+}
+entity Dossier {
+  nomD String
+  cheminD String
+}
+entity Fichier {
+  nomF String
+  cheminF String
+  codeF String
+}
+entity Tache {
+  role Role,
+  descriptiontache String
+}
+
+
+
+entity Projet {
+	intitule String,
+    descriptionProjet String,
+type TypeProjet,
+  etape Etape,
+  dateCreation LocalDate,
+  dateFin LocalDate }
+  
+enum Role {
+  CHEF_DE_PROJET,
+  DEVELOPPEUR,
+  SUPPORT_TECHNIQUE,
+  FORMATEUR,
+  AUDITEUR,
+  AUTRE
+}
+enum TypeProjet {
+  FORMATION,
+  DEVELOPPEMENT,
+  INTEGRATION,
+  ETUDE,
+  AUDITE,
+  AUTRE
+}
+enum Etape {
+  EN_ATTENDE,
+  NON_RETENU,
+  RETENU,
+  ANNULE,
+  CONCEPTION,
+  PRESENTATION_MAQUETAGE,
+  DEVELOPPEMENT,
+  RECETTE,
+  FORMATION,
+  EN_SUIVI,
+  MISE_EN_SERVICE,
+  MISE_EN_EXPLOITATION,
+  
+  TERMINER
+}
+relationship OneToMany {
+	Dossier to Fichier{Dossier}
+}
+
+relationship ManyToOne {
+	Projet{Client} to Client
+}
+
+service all with serviceImpl 
+paginate Client, Dossier, Fichier, Tache, Projet with pagination
+dto Client, Dossier, Fichier, Tache, Projet with mapstruct
+

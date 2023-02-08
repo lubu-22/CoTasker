@@ -1,0 +1,42 @@
+<h1><span class="badge bg-info text-dark">VOS PROJETS</span></h1>
+<table class="table">
+  <thead class="table-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Intitulé</th>
+    <th scope="col">Description</th>
+    <th scope="col">Client</th>
+    <th scope="col">Chef de projet</th>
+<th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tache of taches,let index=index" >
+    <th scope="row">{{index+1}}</th>
+    <td>{{tache.projet?.intitule}}</td>
+    <td>{{tache.projet?.descriptionProjet}}</td>
+    <td>{{tache.projet?.client?.nomC}}</td>
+    <td>{{tache.projet?.user?.login}}</td>
+    <td>
+      <button type="submit" [routerLink]="['/projet', tache.projet?.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+        <fa-icon icon="eye"></fa-icon>
+        <span class="d-none d-md-inline" >Voir les détails</span>
+      </button>
+      <button type="submit" [routerLink]="['/projet', tache.projet?.id, 'tachedeprojet']" class="btn btn-dark" data-cy="entityDetailsButton">
+      <span class="d-none d-md-inline" >voir les taches</span>
+    </button>
+      <button *ngIf="tache.projet?.user?.id==account?.id" type="submit" [routerLink]="['/projet', tache.projet?.id, 'newtache']" class="btn btn-dark" data-cy="entityDetailsButton">
+
+        <span class="d-none d-md-inline" >Affecter une personne </span>
+      </button>
+      <button type="button" class="btn btn-info" (click)="ouvrirModal(tache.projet?.id!)">
+        Ouvrir
+      </button>
+      <button *ngIf="tache.projet?.user?.id==account?.id"  type="button" class="btn btn-info" [routerLink]="['/projet', tache.projet?.id, 'newdossier']" >
+        <span class="d-none d-md-inline" >Créer un Dossier</span>
+      </button>
+    </td>
+  </tr>
+
+  </tbody>
+</table>

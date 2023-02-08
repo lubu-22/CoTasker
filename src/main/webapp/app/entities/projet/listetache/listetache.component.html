@@ -1,0 +1,19 @@
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Personne</th>
+    <th scope="col">Description</th>
+    <th scope="col">Role</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tache of taches,let index=index" >
+    <th >{{index+1}}</th>
+    <td>{{tache.user?.login}}</td>
+    <td>{{tache.descriptiontache}}</td>
+    <td>{{tache.role}}</td>
+
+  </tr>
+  </tbody>
+</table>

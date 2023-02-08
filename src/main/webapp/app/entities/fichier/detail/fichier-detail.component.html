@@ -1,0 +1,46 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fichier">
+      <h2 data-cy="fichierDetailsHeading"><span jhiTranslate="gestionApp.fichier.detail.title">Fichier</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fichier.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionApp.fichier.nomF">Nom F</span></dt>
+        <dd>
+          <span>{{ fichier.nomF }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionApp.fichier.cheminF">Chemin F</span></dt>
+        <dd>
+          <span>{{ fichier.cheminF }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionApp.fichier.codeF">Code F</span></dt>
+        <dd>
+          <span>{{ fichier.codeF }}</span>
+        </dd>
+        <dt><span jhiTranslate="gestionApp.fichier.dossier">Dossier</span></dt>
+        <dd>
+          <div *ngIf="fichier.dossier">
+            <a [routerLink]="['/dossier', fichier.dossier?.id, 'view']">{{ fichier.dossier?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fichier', fichier.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

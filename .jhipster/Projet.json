@@ -1,0 +1,49 @@
+{
+  "applications": "*",
+  "changelogDate": "20220824165004",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "projet",
+  "fields": [
+    {
+      "fieldName": "intitule",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptionProjet",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "TypeProjet",
+      "fieldValues": "FORMATION,DEVELOPPEMENT,INTEGRATION,ETUDE,AUDITE,AUTRE"
+    },
+    {
+      "fieldName": "etape",
+      "fieldType": "Etape",
+      "fieldValues": "EN_ATTENDE,NON_RETENU,RETENU,ANNULE,CONCEPTION,PRESENTATION_MAQUETAGE,DEVELOPPEMENT,RECETTE,FORMATION,EN_SUIVI,MISE_EN_SERVICE,MISE_EN_EXPLOITATION,TERMINER"
+    },
+    {
+      "fieldName": "dateCreation",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateFin",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Projet",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "projet",
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

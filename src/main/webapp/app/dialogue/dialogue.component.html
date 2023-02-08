@@ -1,0 +1,55 @@
+<h1 class="fw-bold">      <fa-icon [icon]="files"></fa-icon>
+  LISTE DES FICHIERS</h1>
+<table class="table table-striped table-hover">
+  <thead>
+
+  <tr bgcolor="#6495ed" size="100000">
+    <th scope="col">#</th>
+    <th scope="col">Intitulé</th>
+    <th></th>
+
+
+  </tr>
+  </thead>
+  <tbody>
+  <div *ngIf="videbolean"> {{vide}}</div>
+  <tr *ngFor="let fichier of fichiers,let index=index"  >
+
+    <th >{{index+1}}</th>
+
+    <td>
+      <fa-icon [icon]="file"></fa-icon>
+      {{ fichier.nomF }}
+    </td>
+    <td>
+      <button type="button" class="btn btn-info" (click)="ouvrirfichier(fichier.id!)" >
+        <fa-icon [icon]="folder"></fa-icon>
+
+        Ouvrir
+      </button>
+    </td>
+    <td>
+      <button
+      type="submit"
+      [routerLink]="['/fichier', fichier.id, 'edit']"
+      class="btn btn-primary btn-sm"
+      data-cy="entityEditButton"
+    >
+      <fa-icon icon="pencil-alt"></fa-icon>
+      <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+    </button>
+    </td>
+    <td>
+    <button type="submit" (click)="delete(fichier)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+      <fa-icon icon="times"></fa-icon>
+      <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+    </button>
+    </td>
+
+
+  </tr>
+  </tbody>
+</table>
+
+
+

@@ -1,0 +1,13 @@
+{
+  "gestionApp": {
+    "Role": {
+      "null": "",
+      "CHEF_DE_PROJET": "CHEF_DE_PROJET",
+      "DEVELOPPEUR": "DEVELOPPEUR",
+      "SUPPORT_TECHNIQUE": "SUPPORT_TECHNIQUE",
+      "FORMATEUR": "FORMATEUR",
+      "AUDITEUR": "AUDITEUR",
+      "AUTRE": "AUTRE"
+    }
+  }
+}

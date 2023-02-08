@@ -1,0 +1,61 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form  name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-fichier-heading" data-cy="FichierCreateUpdateHeading" >
+        Telecharger un Fichier
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="gestionApp.fichier.nomF" for="field_nomF">Nom du fichier</label>
+          <input type="text" class="form-control" name="nomF" id="field_nomF" data-cy="nomF" formControlName="nomF" />
+        </div>
+
+        <div class="row">
+          <div class="col-8">
+            <label class="btn btn-default p-0">
+              <input class="form-control" name="input" id="input" formControlName="input" type="file" (change)="selectFile($event)" />
+              <div *ngIf="editForm.get('input')!.invalid">
+              <small class="form-text text-danger"  *ngIf="editForm.get('input')?.errors?.required" >
+                Erreur Selectionnez un fichier.
+              </small>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div *ngIf="currentFile" class="progress my-3">
+          <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}"  aria-valuemin="0"  aria-valuemax="100"  [ngStyle]="{ width: progress + '%' }" >
+            {{ progress }}%
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+
+
+      </div>
+    </form>
+  </div>
+</div>
+
