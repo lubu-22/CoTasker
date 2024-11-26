@@ -11,11 +11,12 @@ import {IClient} from 'app/entities/client/client.model';
 import {ClientService} from 'app/entities/client/service/client.service';
 import {TypeProjet} from 'app/entities/enumerations/type-projet.model';
 import {Etape} from 'app/entities/enumerations/etape.model';
-import {IUser} from "../../user/user.model";
 import {UserService} from "../../user/user.service";
 import {TacheService} from "../../tache/service/tache.service";
 import {ITache, Tache} from "../../tache/tache.model";
 import {Role} from "../../enumerations/role.model";
+import { IUser } from 'app/admin/user-management/user-management.model';
+import { Authority } from 'app/config/authority.constants';
 
 @Component({
   selector: 'jhi-projet-update',
@@ -25,6 +26,7 @@ export class ProjetUpdateComponent implements OnInit {
   isSaving = false;
   typeProjetValues = Object.keys(TypeProjet);
   etapeValues = Object.keys(Etape);
+  enumauthority= Authority;
 
   clientsSharedCollection: IClient[] = [];
   usersSharedCollection: IUser[] = [];
@@ -139,6 +141,8 @@ export class ProjetUpdateComponent implements OnInit {
       .pipe(map((users: IUser[]) => this.userService.addUserToCollectionIfMissing(users, this.editForm.get('user')!.value)))
       .subscribe((users: IUser[]) => (this.usersSharedCollection = users));
   }
+
+  
 
   protected createFromForm(): IProjet {
     return {

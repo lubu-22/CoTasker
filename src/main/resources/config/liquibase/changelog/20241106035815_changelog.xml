@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="DGESS (generated)" id="1730865507401-1">
+        <createTable tableName="fichierfile">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="fichierfilePK"/>
+            </column>
+            <column name="file" type="TINYBLOB"/>
+            <column name="fichier_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="DGESS (generated)" id="1730865507401-2">
+        <addColumn tableName="projet">
+            <column name="cheminp" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="DGESS (generated)" id="1730865507401-4">
+        <addColumn tableName="projet">
+            <column name="user_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+ 
+    <changeSet author="DGESS (generated)" id="1730865507401-7">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="projet" constraintName="FKp5vahce8o12uerplg1789onx3" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+
+    <changeSet author="DGESS (generated)" id="1730865507401-9">
+        <addForeignKeyConstraint baseColumnNames="fichier_id" baseTableName="fichierfile" constraintName="FKtjw8qdellyoctn11eyj0sa59x" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="fichier" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

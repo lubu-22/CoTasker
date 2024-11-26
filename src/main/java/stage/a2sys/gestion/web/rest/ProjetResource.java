@@ -194,9 +194,9 @@ public class ProjetResource {
     }
 
     @GetMapping("/avoirprojet/{id}")
-    public List<TacheDTO> AvoirProjetDeUser (@PathVariable Long id) {
+    public List<ProjetDTO> AvoirProjetDeUser (@PathVariable Long id) {
         log.debug("REST request to get all projects of a user");
-        return projetService.AvoirProjetServiceImpl(id);
+        return projetService.findByUserId(id);
     }
 
 }

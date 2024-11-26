@@ -13,7 +13,7 @@ import {ITache, Tache} from "../../tache/tache.model";
 @Injectable({
   providedIn: 'root'
 })
-export class ListeprojetuserResolver implements Resolve<ITache[]> {
+export class ListeprojetuserResolver implements Resolve<IProjet[]> {
 
   constructor(protected service: ProjetService, protected router: Router) {}
 
@@ -21,7 +21,7 @@ export class ListeprojetuserResolver implements Resolve<ITache[]> {
     const id = route.params['id'];
 
       return this.service.projetdeuser(id).pipe(
-        mergeMap((taches: HttpResponse<Tache[]>) => {
+        mergeMap((taches: HttpResponse<Projet[]>) => {
           if (taches.body) {
             return of(taches.body);
           } else {

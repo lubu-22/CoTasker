@@ -117,9 +117,11 @@ public class ProjetServiceImpl implements ProjetService {
     }
 
     @Transactional(readOnly = true)
-    public List<TacheDTO> AvoirProjetServiceImpl (Long id) {
-        return tacheMapper.toDto(projetRepository.AvoirprojetReposi(id));
+    public List<ProjetDTO> findByUserId (Long id) {
+        return projetMapper.toDto(projetRepository.findByUserId(id));
     }
+
+   
 
 
 }

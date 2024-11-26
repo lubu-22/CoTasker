@@ -51,7 +51,7 @@ export class ProjetService {
 
   projetdeuser(id: number): Observable<tacheResponse> {
 
-    return this.http.get<ITache[]>(`${this.urlprojetdeuser}/${id}`, { observe: 'response' });
+    return this.http.get<IProjet[]>(`${this.urlprojetdeuser}/${id}`, { observe: 'response' });
 
   }
 

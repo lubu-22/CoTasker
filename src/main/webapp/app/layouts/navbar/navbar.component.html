@@ -1,6 +1,6 @@
 
 <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
-  <img src= "./content/a2sys.png" alt="image "  width="70" height="25" />
+  
 
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
@@ -113,7 +113,7 @@
           </ul>
         </li>
         <li
-          *jhiHasAnyAuthority="enumauthority.ADMINISTRATEUR"
+          *jhiHasAnyAuthority="enumauthority.ADMIN"
           ngbDropdown
           class="nav-item dropdown pointer"
           display="dynamic"

@@ -64,7 +64,7 @@ public interface ProjetService {
 
     List<TacheDTO> AvoirTacheServiceImpl(Long id);
 
-    List<TacheDTO> AvoirProjetServiceImpl(Long id);
+    List<ProjetDTO> findByUserId(Long id);
 
 
 }

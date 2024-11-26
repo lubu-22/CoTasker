@@ -6,19 +6,18 @@
       </h2>
 
       <div>
-        <jhi-alert-error></jhi-alert-error>
 
-        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR"  class="row mb-3" [hidden]="editForm.get('id')!.value == null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
           <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.intitule" for="field_intitule">Intitule</label>
           <input type="text" class="form-control" name="intitule" id="field_intitule" data-cy="intitule" formControlName="intitule" />
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.descriptionProjet" for="field_descriptionProjet"
             >Description Projet</label
           >
@@ -32,7 +31,7 @@
           />
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.type" for="field_type">Type</label>
           <select class="form-control" name="type" formControlName="type" id="field_type" data-cy="type">
             <option [ngValue]="null">{{ 'gestionApp.TypeProjet.null' | translate }}</option>
@@ -50,7 +49,7 @@
           </select>
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.dateCreation" for="field_dateCreation">Date Creation</label>
           <div class="input-group">
             <input
@@ -69,7 +68,7 @@
           </div>
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.dateFin" for="field_dateFin">Date Fin</label>
           <div class="input-group">
             <input
@@ -86,7 +85,7 @@
           </div>
         </div>
 
-        <div class="row mb-3">
+        <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.projet.client" for="field_client">Client</label>
           <select class="form-control" id="field_client" data-cy="client" name="client" formControlName="client">
             <option [ngValue]="null"></option>
@@ -102,13 +101,12 @@
 
 
 
-      <div class="row mb-3">
+      <div *jhiHasAnyAuthority="enumauthority.DIRECTEUR" class="row mb-3">
         <label class="form-label" for="field_user">Chef de projet </label>
         <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user">
-          <option [ngValue]="null"></option>
           <option
             [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption"
-            *ngFor="let userOption of usersSharedCollection; trackBy: trackUserById"
+            *ngFor="let userOption of usersSharedCollection; "
           >
             {{ userOption.login }}
           </option>
@@ -119,7 +117,7 @@
 
 
 
-      <div>
+      <div >
         <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
           <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
         </button>

@@ -6,7 +6,6 @@
       </h2>
 
       <div>
-        <jhi-alert-error></jhi-alert-error>
 
         <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
           <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
@@ -15,7 +14,7 @@
 
         <div class="row mb-3">
           <label class="form-label" jhiTranslate="gestionApp.fichier.nomF" for="field_nomF">Nom du fichier</label>
-          <input type="text" class="form-control" name="nomF" id="field_nomF" data-cy="nomF" formControlName="nomF" />
+          <input type="text" class="form-control" name="codeF" id="field_codeF" data-cy="codeF" formControlName="codeF" />
         </div>
 
         <div class="row">

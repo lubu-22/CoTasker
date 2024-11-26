@@ -17,4 +17,8 @@ public enum Etape {
     MISE_EN_SERVICE,
     MISE_EN_EXPLOITATION,
     TERMINER,
+    EN_COURS,
+    EN_ATTENDE_DE_VALIDATION,
+    A_TRAITER,
+    EN_REVISION,
 }

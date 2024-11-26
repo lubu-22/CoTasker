@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
   <div class="col-sm">
-    <img src= "../../content/Gespro.png" alt="image "/>
+    <img src= "https://d2fl3xywvvllvq.cloudfront.net/wp-content/uploads/2016/07/3amazingprojectmanagementtools.jpg" alt="image " width="300" height="200"/>
   </div>
 
 
@@ -13,8 +13,8 @@
 
     <div [ngSwitch]="account !== null">
       <div class="alert alert-success" *ngSwitchCase="true">
-        <span id="home-logged-message" *ngIf="account" jhiTranslate="home.logged.message" [translateValues]="{ username: account.login }"
-          >You are logged in as user "{{ account.login }}".</span
+        <span id="home-logged-message" *ngIf="account"  
+          >Salut "{{ account.login }}".</span
         >
         <button *jhiHasAnyAuthority="enumauthority.DIRECTEUR"  [routerLink]="['/projet']"type="button" class="btn btn-info">Consulter Les Projets</button>
         <button *jhiHasAnyAuthority="enumauthority.USER" [routerLink]="['/projet', account?.id, 'projetUser']" type="button" class="btn btn-info">Consulter mes Projets</button>

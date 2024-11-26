@@ -2,15 +2,20 @@
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-dossier-heading" data-cy="DossierCreateUpdateHeading" >
-        Créer un nouveau dossier
+        Créer une nouvelle tache
       </h2>
 
       <div>
         <jhi-alert-error></jhi-alert-error>
 
         <div class="row mb-3">
-          <label class="form-label"  >Nom du dossier</label>
+          <label class="form-label"  >Description</label>
           <input type="text" class="form-control" name="nomD" id="field_nomD" data-cy="nomD" formControlName="nomD" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label"  >Etape</label>
+          <input type="text" class="form-control" name="cheminD" id="field_cheminD" data-cy="cheminD" formControlName="cheminD" />
         </div>
       </div>
 

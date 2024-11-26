@@ -43,13 +43,7 @@ public class DossierServiceImpl implements DossierService {
     public DossierDTO save(DossierDTO dossierDTO) {
         log.debug("Request to save Dossier : {}", dossierDTO);
         Dossier dossier = dossierMapper.toEntity(dossierDTO);
-         String cheminp= dossier.getProjet().getIntitule();
-         dossier.setCheminD("C:/Users/HP/Desktop/Projets/"+cheminp+"/"+dossier.getNomD()+"/");
         dossier = dossierRepository.save(dossier);
-
-        File dir1 = new File(dossier.getCheminD());
-        dir1.mkdir();
-
         return dossierMapper.toDto(dossier);
     }
 

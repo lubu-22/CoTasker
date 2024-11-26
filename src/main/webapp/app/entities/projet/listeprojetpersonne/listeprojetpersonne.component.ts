@@ -8,6 +8,7 @@ import {Account} from "../../../core/auth/account.model";
 import {takeUntil} from "rxjs/operators";
 import {AccountService} from "../../../core/auth/account.service";
 import {Subject} from "rxjs";
+import { IProjet } from '../projet.model';
 
 @Component({
   selector: 'jhi-listeprojetpersonne',
@@ -15,7 +16,7 @@ import {Subject} from "rxjs";
   styleUrls: ['./listeprojetpersonne.component.scss']
 })
 export class ListeprojetpersonneComponent implements OnInit {
-  taches?:ITache[];
+  taches?:IProjet[];
   account: Account | null = null;
   private readonly destroy$ = new Subject<void>();
 

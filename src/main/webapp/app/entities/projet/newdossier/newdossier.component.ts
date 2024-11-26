@@ -83,6 +83,7 @@ export class NewdossierComponent implements OnInit {
       ...new Dossier(),
       id: this.editForm.get(['id'])!.value,
       nomD: this.editForm.get(['nomD'])!.value,
+      cheminD: this.editForm.get(['cheminD'])!.value,
       projet: this.projet
       }
   }

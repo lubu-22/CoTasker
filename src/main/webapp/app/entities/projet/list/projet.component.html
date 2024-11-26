@@ -35,13 +35,13 @@
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
           <th></th>
           <th scope="col" jhiSortBy="intitule">
-            <span jhiTranslate="gestionApp.projet.intitule">Intitule</span> <fa-icon icon="sort"></fa-icon>
+            <span >Description Projet</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col" jhiSortBy="descriptionProjet">
-            <span jhiTranslate="gestionApp.projet.descriptionProjet">Description Projet</span> <fa-icon icon="sort"></fa-icon>
+            <span >Etape</span> <fa-icon icon="sort"></fa-icon>
           </th>
           <th scope="col">
-            <span > Chef de Projet</span>
+            <span > Employé</span>
           </th>
 
 
@@ -54,8 +54,8 @@
 
             <img src="content/projet.png"  WIDTH=50 HEIGHT=50/>
           </td>
-          <td>{{ projet.intitule }}</td>
           <td>{{ projet.descriptionProjet }}</td>
+          <td>{{ projet.etape }}</td>
           <td>{{projet.user?.login}}</td>
 
           <td class="text-end">
@@ -76,17 +76,17 @@
               </button>
               <button type="button" class="btn btn-info" (click)="ouvrirModal(projet.id!)">
                 <fa-icon [icon]="fatache"></fa-icon>
-                Gérer les dossiers
+                Gérer les taches
               </button>
 
 
               <button type="submit" [routerLink]="['/projet', projet.id, 'chefdeprojet']" class="btn btn-dark" data-cy="entityDetailsButton">
-               <span class="d-none d-md-inline" >Affecter un chef de projet</span>
+               <span class="d-none d-md-inline" >Affecter un employé</span>
               </button>
 
               <button  *jhiHasAnyAuthority="enumauthority.DIRECTEUR" type="button" class="btn btn-info" [routerLink]="['/projet', projet.id, 'newdossier']" >
                 <fa-icon [icon]="faFolder"></fa-icon>
-                <span class="d-none d-md-inline" >Créer un Dossier</span>
+                <span class="d-none d-md-inline" >Créer une tache</span>
               </button>
              <!-- <button type="submit" [routerLink]="['/projet', projet.id, 'tachedeprojet']" class="btn btn-dark" data-cy="entityDetailsButton">
                 <fa-icon [icon]="fatache"></fa-icon>

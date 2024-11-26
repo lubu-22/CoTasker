@@ -18,11 +18,10 @@ public interface ProjetRepository extends JpaRepository<Projet, Long> {
      List<Dossier> AvoirDossierReposi(@Param("x") Long x) ;
     @Query(value = "SELECT t FROM Tache t WHERE t.projet.id = :x")
     List<Tache> AvoirtacheReposi(@Param("x") Long x) ;
+    @Query(value = "SELECT p FROM Projet p WHERE p.user.id = :x")
+    List<Projet> AvoirprojetReposi(@Param("x") Long x) ;
 
-    @Query(value = "SELECT t FROM Tache t WHERE t.user.id = :x")
-    List<Tache> AvoirprojetReposi(@Param("x") Long x) ;
-
-
+    List<Projet> findByUserId(Long userId);
 
 
 
