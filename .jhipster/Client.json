@@ -1,4 +1,5 @@
 {
+  
   "applications": "*",
   "changelogDate": "20220824165000",
   "dto": "mapstruct",
