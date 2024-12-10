@@ -2,6 +2,7 @@
 
 @setlocal
 
+
 set NPMW_DIR=%~dp0
 
 if exist "%NPMW_DIR%\mvnw.cmd" (
