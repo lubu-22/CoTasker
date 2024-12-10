@@ -1,4 +1,5 @@
 {
+  
   "generator-jhipster": {
     "applicationType": "monolith",
     "authenticationType": "jwt",
