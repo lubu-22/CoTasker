@@ -1,5 +1,6 @@
 const { pathsToModuleNameMapper } = require('ts-jest');
 
+
 const {
   compilerOptions: { paths = {}, baseUrl = './' },
 } = require('./tsconfig.json');
