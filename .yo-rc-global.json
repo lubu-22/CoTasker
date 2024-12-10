@@ -1,4 +1,5 @@
 {
+  
   "generator-jhipster:7.8.1": {
     "promptValues": {
       "packageName": "stage.a2sys.gestion",
