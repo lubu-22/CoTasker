@@ -1,4 +1,5 @@
 {
+  
   "compilerOptions": {
     "baseUrl": "src/main/webapp/",
     "outDir": "./target/classes/static/",
