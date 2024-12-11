@@ -28,11 +28,17 @@
 
 ## Scénario 1 : Suivi des tâches de l’équipe (Claire)
 
-Claire se connecte à l'application de gestion de tâches pour vérifier l’avancement des projets en cours. Elle accède au tableau de bord, qui affiche les projets et les tâches associées. Claire remarque qu'une tâche est bloquée et décide de consulter les commentaires pour comprendre la raison. Après avoir échangé avec Jules et d’autres membres, elle redéfinit les priorités et assigne une nouvelle échéance. Enfin, elle envoie une notification à l’équipe pour signaler les changements.
+Claire se connecte à l'application de gestion de tâches pour vérifier l’avancement des projets en cours. 
+Elle accède au tableau de bord, qui affiche les projets et les tâches associées. 
+Claire remarque qu'une tâche est en attente de validation et décide de consulter les fichiers fournit pour comprendre la raison. 
+Après avoir consulter elle valide ou définit une autre tache.
+
 
 ## Scénario 2 : Validation des tâches (Jules)
 
-Jules, après avoir terminé une tâche de création de visuels, accède à l’application et met à jour l’état de sa tâche en « Terminé ». Il télécharge ses fichiers et demande une validation de Claire. Cette dernière reçoit une notification et examine les visuels. Elle laisse un commentaire sur les améliorations à apporter, que Jules voit en temps réel. Après avoir appliqué les retours, il redemande la validation et la tâche est clôturée.
+Apres s’etre connecté et après avoir terminé une tâche de création de visuels, Jules accède à l’application et met à jour l’état de sa tâche en « en attente de validation ». Il télécharge ses fichiers. Quand Claire va se connecter elle examine les visuels. Elle marque la tache comme terminé ou ajoute une autre tache pour les améliorations à apporter. Après avoir appliqué les retours, il redemande la validation et la tâche est clôturée.
+
+
 
 # Liste initiale des fonctionnalités
 
